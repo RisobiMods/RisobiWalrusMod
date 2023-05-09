@@ -7,6 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import risobiwalrus.RisobiWalrusMain;
+import risobiwalrus.item.TravelersCaneItem;
 import risobiwalrus.item.WalkingCaneItem;
 
 public class ItemInit {
@@ -15,7 +16,10 @@ public class ItemInit {
             DeferredRegister.create(ForgeRegistries.ITEMS, RisobiWalrusMain.MOD_ID);
 
     public static final RegistryObject<WalkingCaneItem> WALKING_CANE = ITEMS.register("walking_cane",
-            () -> new WalkingCaneItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+            () -> new WalkingCaneItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<TravelersCaneItem> TRAVELERS_CANE = ITEMS.register("travelers_cane",
+            () -> new TravelersCaneItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     public static void register(IEventBus eventBus) {ITEMS.register(eventBus);}
 }
