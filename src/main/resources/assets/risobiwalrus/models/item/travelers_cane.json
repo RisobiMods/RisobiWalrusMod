@@ -1,6 +1,3 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "risobiwalrus:item/travelers_cane"
-  }
+  "parent": "risobiwalrus:block/travelers_cane"
 }
