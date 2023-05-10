@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blaze_rod"
+    },
+    "X": {
+      "item": "risobiwalrus:walking_cane"
+    }
+  },
+  "result": {
+    "item": "risobiwalrus:travelers_cane"
+  }
+}
