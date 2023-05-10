@@ -9,6 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 import risobiwalrus.RisobiWalrusMain;
 import risobiwalrus.item.TravelersCaneItem;
 import risobiwalrus.item.WalkingCaneItem;
+import risobiwalrus.item.WalrusToothItem;
 
 public class ItemInit {
 
@@ -20,6 +21,9 @@ public class ItemInit {
 
     public static final RegistryObject<TravelersCaneItem> TRAVELERS_CANE = ITEMS.register("travelers_cane",
             () -> new TravelersCaneItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<WalrusToothItem> WALRUS_TOOTH = ITEMS.register("walrus_tooth",
+            () -> new WalrusToothItem(new Item.Properties().stacksTo(64)));
 
     public static void register(IEventBus eventBus) {ITEMS.register(eventBus);}
 }

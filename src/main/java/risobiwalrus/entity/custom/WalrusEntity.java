@@ -5,7 +5,10 @@ import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -43,14 +46,21 @@ public class WalrusEntity extends Animal implements IAnimatable {
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.raccoon.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("walkinganimation", true));
             return PlayState.CONTINUE;
         }
 
         event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.raccoon.idle",true));
         return PlayState.CONTINUE;
     }
-
+    protected void registerGoals() {
+        this.goalSelector.addGoal(1, new FloatGoal(this));
+        this.goalSelector.addGoal(2, new PanicGoal(this, 1.25D));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(6, (new HurtByTargetGoal(this)).setAlertOthers());
+    }
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller",

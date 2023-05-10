@@ -1,15 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " # ",
-    " X ",
-    " # "
+    " A ",
+    " E ",
+    " C "
   ],
   "key": {
-    "#": {
+    "A": {
+      "type": "forge:nbt",
+      "item": "minecraft:splash_potion",
+      "count": 1,
+      "nbt": "{Potion:\"minecraft:strong_swiftness\"}"
+    },
+    "C": {
       "item": "minecraft:blaze_rod"
     },
-    "X": {
+    "E": {
       "item": "risobiwalrus:walking_cane"
     }
   },

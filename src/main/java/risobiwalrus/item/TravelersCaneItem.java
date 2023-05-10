@@ -21,12 +21,17 @@ public class TravelersCaneItem extends Item {
         super(pProperties);
 
     }
+    //this adds item description to mouse hover display
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         pTooltip.add(this.getDisplayName().withStyle(ChatFormatting.GRAY));
     }
+    //grabbing description from en_us json
     public MutableComponent getDisplayName() {
         return new TranslatableComponent(this.getDescriptionId() + ".desc");
     }
+
+
+    //this gives the player speed effect if the item is held in either main or off hand
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pItemSlot, boolean pIsSelected) {
         if (!pLevel.isClientSide) {
             if (pIsSelected || pEntity instanceof Player && ((Player)pEntity).getOffhandItem() == pStack) {
@@ -36,4 +41,9 @@ public class TravelersCaneItem extends Item {
             }
         }
     }
+   //this adds the enchantment glint to the item
+    public boolean isFoil(ItemStack pStack) {
+        return true;
+    }
 }
+
