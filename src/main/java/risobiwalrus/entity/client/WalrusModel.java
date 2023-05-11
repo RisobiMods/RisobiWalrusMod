@@ -18,6 +18,6 @@ public class WalrusModel extends AnimatedGeoModel<WalrusEntity> {
 
     @Override
     public ResourceLocation getAnimationFileLocation(WalrusEntity animatable) {
-        return new ResourceLocation(RisobiWalrusMain.MOD_ID, "animations/walkinganimation.json");
+        return new ResourceLocation(RisobiWalrusMain.MOD_ID, "animations/walrus.animation.json");
     }
 }

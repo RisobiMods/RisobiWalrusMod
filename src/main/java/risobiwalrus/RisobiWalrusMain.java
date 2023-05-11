@@ -41,6 +41,7 @@ public class RisobiWalrusMain {
         GeckoLib.initialize();
 
         eventBus.addListener(this::setup);
+        eventBus.addListener(this::clientSetup);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

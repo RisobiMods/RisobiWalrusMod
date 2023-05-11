@@ -46,11 +46,11 @@ public class WalrusEntity extends Animal implements IAnimatable {
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("walkinganimation", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("walking.new", true));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.raccoon.idle",true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("mouth_idle_test.new",true));
         return PlayState.CONTINUE;
     }
     protected void registerGoals() {
