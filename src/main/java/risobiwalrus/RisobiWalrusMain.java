@@ -2,6 +2,9 @@ package risobiwalrus;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -12,6 +15,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import risobiwalrus.entity.ModEntityTypes;
 import risobiwalrus.entity.client.WalrusRenderer;
+import risobiwalrus.entity.custom.WalrusEntity;
 import risobiwalrus.init.ItemInit;
 import risobiwalrus.world.structure.ModStructures;
 import software.bernie.geckolib3.GeckoLib;
@@ -45,6 +49,13 @@ public class RisobiWalrusMain {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+
+            SpawnPlacements.register(ModEntityTypes.WALRUS.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    WalrusEntity::checkWalrusSpawnRules);
+        });
 
     }
 

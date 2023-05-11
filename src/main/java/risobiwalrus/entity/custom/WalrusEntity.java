@@ -1,16 +1,25 @@
 package risobiwalrus.entity.custom;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.PolarBear;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import org.jetbrains.annotations.Nullable;
+import risobiwalrus.RisobiWalrusMain;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -20,8 +29,23 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
+import java.util.Random;
+
 public class WalrusEntity extends Animal implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
+
+    public static boolean checkWalrusSpawnRules(EntityType<WalrusEntity> pWalrusEntity, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, Random pRandom) {
+        Holder<Biome> holder = pLevel.getBiome(pPos);
+        if (!holder.is(Biomes.FROZEN_OCEAN) && !holder.is(Biomes.DEEP_FROZEN_OCEAN)) {
+            RisobiWalrusMain.LOGGER.info("amongus");
+            return checkAnimalSpawnRules(pWalrusEntity, pLevel, pSpawnType, pPos, pRandom);
+        } else {
+            RisobiWalrusMain.LOGGER.info(""+(isBrightEnoughToSpawn(pLevel, pPos) && pLevel.getBlockState(pPos.below()).is(BlockTags.POLAR_BEARS_SPAWNABLE_ON_IN_FROZEN_OCEAN)));
+            return isBrightEnoughToSpawn(pLevel, pPos) && pLevel.getBlockState(pPos.below()).is(BlockTags.GOATS_SPAWNABLE_ON);
+        }
+    }
+
+
 
     public WalrusEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
