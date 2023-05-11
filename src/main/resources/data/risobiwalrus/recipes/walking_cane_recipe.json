@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    " C ",
+    " C "
+  ],
+  "key": {
+    "A": {
+      "item": "risobiwalrus:walrus_tooth"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "risobiwalrus:walking_cane"
+  }
+}

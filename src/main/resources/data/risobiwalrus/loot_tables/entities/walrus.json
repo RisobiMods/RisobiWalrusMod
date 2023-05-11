@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "random_chance",
+              "chance": 0.35
+            }
+          ],
+          "name": "risobiwalrus:walrus_tooth"
+        }
+      ]
+    }
+  ]
+}
