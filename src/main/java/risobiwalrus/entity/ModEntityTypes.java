@@ -17,7 +17,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<WalrusEntity>> WALRUS =
             ENTITY_TYPES.register("walrus",
                     () -> EntityType.Builder.of(WalrusEntity::new, MobCategory.CREATURE)
-                            .sized(1.1f, 1.3f)
+                            .sized(1.0f, 1.3f)
                             .build(new ResourceLocation(RisobiWalrusMain.MOD_ID, "walrus").toString()));
 
 
