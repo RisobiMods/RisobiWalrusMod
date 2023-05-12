@@ -25,5 +25,6 @@ public class ItemInit {
     public static final RegistryObject<WalrusToothItem> WALRUS_TOOTH = ITEMS.register("walrus_tooth",
             () -> new WalrusToothItem(new Item.Properties().stacksTo(64)));
 
+
     public static void register(IEventBus eventBus) {ITEMS.register(eventBus);}
 }

@@ -15,9 +15,7 @@ public class ModSounds {
 
 
     public static RegistryObject<SoundEvent> WALRUS_SOUND_1 = registerSoundEvent("walrus_sound_1");
-
     public static RegistryObject<SoundEvent> WALRUS_HURT_1 = registerSoundEvent("walrus_hurt_1");
-
 
 
 
@@ -26,7 +24,5 @@ public class ModSounds {
     }
     public static void register(IEventBus eventBus) {
         SOUND_EVENTS.register(eventBus);
-
-
     }
 }

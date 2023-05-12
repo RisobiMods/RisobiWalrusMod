@@ -43,6 +43,7 @@ public class RisobiWalrusMain {
 
         ModEntityTypes.register(eventBus);
 
+        //this is currently not being used, saving it for if i want to add structures for the walrus
         ModStructures.register(eventBus);
 
         ModSounds.register(eventBus);
@@ -63,9 +64,7 @@ public class RisobiWalrusMain {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     WalrusEntity::checkWalrusSpawnRules);
         });
-
     }
-
     private void processIMC(final InterModProcessEvent event)
     {
         LOGGER.info("Got IMC {}", event.getIMCStream().

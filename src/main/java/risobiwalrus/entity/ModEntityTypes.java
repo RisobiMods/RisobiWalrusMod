@@ -14,6 +14,7 @@ public class ModEntityTypes {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITIES, RisobiWalrusMain.MOD_ID);
 
+
     public static final RegistryObject<EntityType<WalrusEntity>> WALRUS =
             ENTITY_TYPES.register("walrus",
                     () -> EntityType.Builder.of(WalrusEntity::new, MobCategory.CREATURE)

@@ -38,6 +38,11 @@ import java.util.Random;
 
 public class WalrusEntity extends Animal implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
+    public WalrusEntity(EntityType<? extends Animal> entityType, Level level) {
+
+        super(entityType, level);
+    }
+
 
     public static boolean checkWalrusSpawnRules(EntityType<WalrusEntity> pWalrusEntity, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, Random pRandom) {
         Holder<Biome> holder = pLevel.getBiome(pPos);
@@ -48,17 +53,11 @@ public class WalrusEntity extends Animal implements IAnimatable {
                 RisobiWalrusMain.LOGGER.info("amongus"+checkAnimalSpawnRules(pWalrusEntity, pLevel, pSpawnType, pPos, pRandom));
                 return checkAnimalSpawnRules(pWalrusEntity, pLevel, pSpawnType, pPos, pRandom);
             } else {
-                RisobiWalrusMain.LOGGER.info("" + (isBrightEnoughToSpawn(pLevel, pPos) && pLevel.getBlockState(pPos.below()).is(BlockTags.POLAR_BEARS_SPAWNABLE_ON_IN_FROZEN_OCEAN)));
+                RisobiWalrusMain.LOGGER.info("fortnite" + (isBrightEnoughToSpawn(pLevel, pPos) && pLevel.getBlockState(pPos.below()).is(BlockTags.POLAR_BEARS_SPAWNABLE_ON_IN_FROZEN_OCEAN)));
                 return isBrightEnoughToSpawn(pLevel, pPos) && pLevel.getBlockState(pPos.below()).is(BlockTags.GOATS_SPAWNABLE_ON);
             }
         }
         return false;
-    }
-
-
-
-    public WalrusEntity(EntityType<? extends Animal> entityType, Level level) {
-        super(entityType, level);
     }
 
 
@@ -79,12 +78,12 @@ public class WalrusEntity extends Animal implements IAnimatable {
     }
 
 
+
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob p_146744_) {
         return null;
     }
-
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
