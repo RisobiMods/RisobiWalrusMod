@@ -2,6 +2,7 @@ package risobiwalrus;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -12,11 +13,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.checkerframework.checker.signature.qual.Identifier;
 import org.slf4j.Logger;
 import risobiwalrus.entity.ModEntityTypes;
 import risobiwalrus.entity.client.WalrusRenderer;
 import risobiwalrus.entity.custom.WalrusEntity;
 import risobiwalrus.init.ItemInit;
+import risobiwalrus.sound.ModSounds;
 import risobiwalrus.world.structure.ModStructures;
 import software.bernie.geckolib3.GeckoLib;
 
@@ -42,11 +45,15 @@ public class RisobiWalrusMain {
 
         ModStructures.register(eventBus);
 
+        ModSounds.register(eventBus);
+
         GeckoLib.initialize();
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
     }
+
+
 
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {

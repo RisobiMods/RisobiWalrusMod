@@ -3,7 +3,10 @@ package risobiwalrus.entity.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
@@ -21,6 +24,7 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.storage.loot.LootContext;
 import org.jetbrains.annotations.Nullable;
 import risobiwalrus.RisobiWalrusMain;
+import risobiwalrus.sound.ModSounds;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -67,6 +71,14 @@ public class WalrusEntity extends Animal implements IAnimatable {
     }
 
 
+    protected SoundEvent getAmbientSound() {return ModSounds.WALRUS_SOUND_1.get();
+    }
+
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return ModSounds.WALRUS_HURT_1.get();
+    }
+
+
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob p_146744_) {
@@ -85,12 +97,16 @@ public class WalrusEntity extends Animal implements IAnimatable {
     }
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new PanicGoal(this, 2.0D));
+        this.goalSelector.addGoal(2, new PanicGoal(this, 3.0D));
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 4.0F));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(6, (new HurtByTargetGoal(this)).setAlertOthers());
     }
+
+
+
+
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller",

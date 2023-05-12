@@ -1,0 +1,16 @@
+{
+  "walrus_sound_1": {
+    "subtitle": "sounds.risobiwalrus.walrus_sound_1",
+    "sounds": [
+      "risobiwalrus:walrus_sound_1",
+      "risobiwalrus:walrus_sound_2"
+    ]
+  },
+  "walrus_hurt_1": {
+    "subtitle": "sounds.risobiwalrus.walrus_hurt_1",
+    "sounds": [
+      "risobiwalrus:walrus_hurt_1",
+      "risobiwalrus:walrus_hurt_2"
+    ]
+  }
+}
