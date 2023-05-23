@@ -11,7 +11,7 @@ import risobiwalrus.entity.custom.WalrusEntity;
 
 import javax.annotation.Nonnull;
 
-//this isnt really needed
+
 @Mod.EventBusSubscriber(modid = RisobiWalrusMain.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
 

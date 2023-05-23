@@ -50,10 +50,10 @@ public class WalrusEntity extends Animal implements IAnimatable {
         double chance = Math.random();
         if (chance <= .1) {
             if (!holder.is(Biomes.FROZEN_OCEAN) && !holder.is(Biomes.DEEP_FROZEN_OCEAN)) {
-                RisobiWalrusMain.LOGGER.info("amongus"+checkAnimalSpawnRules(pWalrusEntity, pLevel, pSpawnType, pPos, pRandom));
+//                RisobiWalrusMain.LOGGER.info("amongus"+checkAnimalSpawnRules(pWalrusEntity, pLevel, pSpawnType, pPos, pRandom));
                 return checkAnimalSpawnRules(pWalrusEntity, pLevel, pSpawnType, pPos, pRandom);
             } else {
-                RisobiWalrusMain.LOGGER.info("fortnite" + (isBrightEnoughToSpawn(pLevel, pPos) && pLevel.getBlockState(pPos.below()).is(BlockTags.POLAR_BEARS_SPAWNABLE_ON_IN_FROZEN_OCEAN)));
+//                RisobiWalrusMain.LOGGER.info("fortnite" + (isBrightEnoughToSpawn(pLevel, pPos) && pLevel.getBlockState(pPos.below()).is(BlockTags.POLAR_BEARS_SPAWNABLE_ON_IN_FROZEN_OCEAN)));
                 return isBrightEnoughToSpawn(pLevel, pPos) && pLevel.getBlockState(pPos.below()).is(BlockTags.GOATS_SPAWNABLE_ON);
             }
         }
